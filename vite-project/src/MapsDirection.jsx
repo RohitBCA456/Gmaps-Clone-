@@ -64,69 +64,74 @@ const MapWithDirections = () => {
 
   return isLoaded ? (
     <div style={{ fontFamily: "Arial, sans-serif" }}>
-      <div style={{ marginBottom: "20px" }}>
-        <h2>Get Directions</h2>
+  <div style={{ marginBottom: "30px" }}>
+    <h2>Get Directions</h2>
 
-        {/* Origin Input with Autocomplete */}
-        <div style={{ marginBottom: "10px" }}>
-          <Autocomplete
-            onLoad={(autocomplete) => (autocompleteOriginRef.current = autocomplete)}
-            onPlaceChanged={() => handlePlaceChange(autocompleteOriginRef.current, setOrigin)}
-          >
-            <input
-              type="text"
-              placeholder="Enter origin"
-              value={origin}
-              onChange={(e) => setOrigin(e.target.value)}
-              style={{
-                width: "300px",
-                padding: "10px",
-                borderRadius: "4px",
-                border: "1px solid #ccc",
-                marginRight: "10px",
-              }}
-            />
-          </Autocomplete>
-        </div>
-
-        {/* Destination Input with Autocomplete */}
-        <div style={{ marginBottom: "20px" }}>
-          <Autocomplete
-            onLoad={(autocomplete) => (autocompleteDestinationRef.current = autocomplete)}
-            onPlaceChanged={() => handlePlaceChange(autocompleteDestinationRef.current, setDestination)}
-          >
-            <input
-              type="text"
-              placeholder="Enter destination"
-              value={destination}
-              onChange={(e) => setDestination(e.target.value)}
-              style={{
-                width: "300px",
-                padding: "10px",
-                borderRadius: "4px",
-                border: "1px solid #ccc",
-                marginRight: "10px",
-              }}
-            />
-          </Autocomplete>
-        </div>
-
-        {/* Button to calculate route */}
-        <button
-          onClick={calculateRoute}
+    {/* Origin Input with Autocomplete */}
+    <div style={{ marginBottom: "20px" }}>
+      <Autocomplete
+        onLoad={(autocomplete) => (autocompleteOriginRef.current = autocomplete)}
+        onPlaceChanged={() => handlePlaceChange(autocompleteOriginRef.current, setOrigin)}
+      >
+        <input
+          type="text"
+          placeholder="Enter origin"
+          value={origin}
+          onChange={(e) => setOrigin(e.target.value)}
           style={{
-            padding: "10px 20px",
-            backgroundColor: "#007BFF",
-            color: "white",
-            border: "none",
-            borderRadius: "4px",
-            cursor: "pointer",
+            width: "300px",
+            padding: "12px 16px",
+            borderRadius: "8px",
+            border: "1px solid #ccc",
+            marginRight: "10px",
             fontSize: "16px",
+            transition: "all 0.3s ease-in-out",
           }}
-        >
-          Get Directions
-        </button>
-      </div>
+        />
+      </Autocomplete>
+    </div>
+
+    {/* Destination Input with Autocomplete */}
+    <div style={{ marginBottom: "30px" }}>
+      <Autocomplete
+        onLoad={(autocomplete) => (autocompleteDestinationRef.current = autocomplete)}
+        onPlaceChanged={() => handlePlaceChange(autocompleteDestinationRef.current, setDestination)}
+      >
+        <input
+          type="text"
+          placeholder="Enter destination"
+          value={destination}
+          onChange={(e) => setDestination(e.target.value)}
+          style={{
+            width: "300px",
+            padding: "12px 16px",
+            borderRadius: "8px",
+            border: "1px solid #ccc",
+            marginRight: "10px",
+            fontSize: "16px",
+            transition: "all 0.3s ease-in-out",
+          }}
+        />
+      </Autocomplete>
+    </div>
+
+    {/* Button to calculate route */}
+    <button
+      onClick={calculateRoute}
+      style={{
+        padding: "12px 24px",
+        backgroundColor: "#007BFF",
+        color: "white",
+        border: "none",
+        borderRadius: "8px",
+        cursor: "pointer",
+        fontSize: "16px",
+        transition: "all 0.3s ease",
+      }}
+    >
+      Get Directions
+    </button>
+  </div>
 
       {/* Map */}
       <GoogleMap
